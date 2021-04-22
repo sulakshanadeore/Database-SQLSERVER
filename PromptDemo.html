@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <head>
-    <script src="scriptFile1.js"></script>
+    <!-- <script src="scriptFile1.js"></script> -->
+<script>
+    function f2() {
+        /*var todaysDate=new Date();
+        document.getElementById("p1").innerHTML=todaysDate;
+        document.getElementById("d1").value=todaysDate;*/
+        document.write("Hello");
+        //document.write("HEllo");
+    }
 
+    function forLoop() {
+        for(let i=1;i<5;i++)
+        {
+            document.writeln(i + " ");
+        }
+        
+        
+    }
+
+    function varletDemo() {
+        
+        let k;
+        k="Hello";
+        alert(k);
+        var j;
+        j="Bye";
+        alert(j);
+    }
+
+    function logicalOperators()
+    {
+
+        // --and--- &&
+        // --or---||
+        // not====!
+    }
+
+    function ComparisionOperators() {
+        //= assignment
+        //== comparision
+    //=== value & Type
+    }
+</script>
 </head>
 <body>
-    <form style="background-color: teal;">
-<input  type="button" value="Click here" id="b1" onclick="f1()"/>
-<input  type="submit" value="Submit" id="b2"/>
+    <!-- <form style="background-color: teal;">
+<!-- <input  type="button" value="Click here" id="b1" /> -->
+ <!-- <input  type="button" value="Click here for loop" id="b1" onclick="forLoop()" />  -->
+<!-- <input type="text" id="d1" value=""> -->
+<!-- <input  type="button" value="Submit" id="b2" onclick="f2()"/> -->
 
-    </form>
+<!-- //redonly text box -->
+
+
+    <!-- </form> -->
+    <p id="p1" onclick="varletDemo()">Thsi is paragraph</p> 
 </body>
 
 </html>
