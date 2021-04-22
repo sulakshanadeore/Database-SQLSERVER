@@ -1,0 +1,68 @@
+<!Doctype html>
+<head>
+<title>Storage in HTml:5</title>
+<script>
+function savedata()
+{
+    var firstname=document.getElementById("fname").value;
+    var lastname=document.getElementById("lname").value;
+    var city=document.getElementById("city").value;
+    var email=document.getElementById("email").value;
+sessionStorage.setItem("fname",firstname);
+sessionStorage.setItem("lname",lastname);
+sessionStorage.setItem("city",city);
+sessionStorage.setItem("email",email);
+
+
+
+
+}
+
+function    showdata()
+{
+    var fname=sessionStorage.getItem("fname");
+    var lname=sessionStorage.getItem("lname");
+    var city=sessionStorage.getItem("city");
+    var email=sessionStorage.getItem("email");
+document.getElementById("Showfname").value=fname;
+document.getElementById("Showlname").value=lname;
+document.getElementById("Showcity").value=city;
+document.getElementById("Showemail").value=email;
+
+
+
+
+}
+    </script>
+</script>
+
+</head>
+<body>
+
+    <form>
+        <fieldset>
+        <legend>Personal Info <span style="color:green">(We <span style="font-size: larger; color:red">donot</span> share your info with any one)</span></legend>
+       <label>Enter First Name</label> 
+       <input type="text" id="fname" value="" required size="50" placeholder="Enter First Name only" autofocus autocomplete
+        autocapitalize="words" /><br/>
+       <label>Enter Last Name</label>
+       <input type="text" id="lname" value="" minlength="1" maxlength="5" required />
+       <br/>
+       <label>Enter City</label> <input type="text" id="city" value="MUM" pattern="[A-Z]{3}" />
+       <br/>
+       <label>Enter Email:</label> <input type="email" id="email" value=""/>
+       <br/>
+<input type="submit" value="Save" id-"b1" name="b1" onclick="savedata()"/>
+<input type="button" value="Show" id-"b2" name="b2" onclick="showdata()"/>
+<div style="height:auto;width: auto;border: aqua; border-width: 5px;border-style: dotted;">
+    <input type="text" id="Showfname" readonly/>
+    <input type="text" id="Showlname" readonly/>
+    <input type="text" id="Showcity" readonly/>
+    <input type="text" id="Showemail" readonly/>
+
+</div>
+</fieldset>
+    </form>
+</body>
+
+</html>
