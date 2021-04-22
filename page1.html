@@ -1,0 +1,111 @@
+<!Doctype html>
+    <head>
+        <style>
+        body{
+            background-color: red;
+        }
+#div1
+{
+
+    border-radius:10px;border:violet;border-style:groove;width: auto;height:auto;border-width: 3px;
+}
+        </style>
+    </head>
+
+    <!-- style="background-color: chocolate;" -->
+    <body>
+        <div style="border: darkgreen;border-width:5px;border-style:dotted;height:300;width:400;">
+
+            <!-- formnovalidate--- is to used with submit button -->
+            <!-- novalidate--- is to used as a attribute in the form tag -->
+    <form>
+        <fieldset>
+        <legend>Personal Info <span style="color:green">(We <span style="font-size: larger; color:red">donot</span> share your info with any one)</span></legend>
+       <label>Enter First Name</label> 
+       <input type="text" id="fname" value="" required size="50" placeholder="Enter First Name only" autofocus autocomplete
+        autocapitalize="characters" /><br/>
+       <label>Enter Last Name</label>
+       <input type="text" id="lname" value="" minlength="1" maxlength="5" required />
+       <br/>
+       <label>Enter City</label> <input type="text" id="city" value="MUM" pattern="[A-Z]{3}" />
+       <br/>
+       <label>Enter Email:</label> <input type="email" id="email" value=""/>
+       <br/>
+       <label>Enter Url</label> <input type="url" id="url" value=""/>
+       <br/>
+       <label>Enter Fav color: </label> <input type="color" id="favcolor" value=""/>
+<br/>
+<label>Enter Date of birth</label> <input type="date" id="bdate" value=""/>
+<br/>
+<label>Enter Joining Date:</label> <input type="datetime-local" id="jdate" value=""/>
+<br/>
+<label>Enter Todays Date:</label> <input type="datetime" id="tdate" value=""/>
+<br/>
+<label>Enter Number:</label> <input type="number" id="n1" value="2" step="2" min="0" max="10" readonly/>
+<br/>
+<label>Upload File: </label>
+<input  type="file" name="f1" id="f1" multiple/>
+<br/>
+<label for="country">Select/Enter Country</label>
+<input list="countries">
+<datalist id="countries">
+    <option value="India">IND</option>
+    <option value="United States of America">US</option>
+    <option value="United Kingdom">UK</option>
+    
+</datalist>
+<br/>
+<label>Slider</label>
+<!-- <input type="text" value="r1.value"/> -->
+<input type="range"  step="10" value="10" min="4" max="100" id="r1" name="r1" />
+<br/>
+<label>Another Slider:</label>
+<meter id="m1" name="m1"  min="10" value="20" max="100">5 of 10</meter>
+<br/>
+<div>
+    <form onsubmit="return false" oninput="o.value =parseInt(a.value) + parseInt(b.value)">
+         <input name="a" type="number" step="any"> +  <input name="b" type="number" step="any"> =
+           <output name="o"></output></form>
+
+</div>
+
+
+       <div id="div1" name="idproof" ><
+        <label>What do u have ?</label>
+       <input type="checkbox" value="Passport" />
+       <label for="Passport">I have Passport</label>
+       <input type="checkbox" value="Pancard"  />
+       <label for="Pancard">I have Pancard</label>
+        </div>
+
+        <div id="div1">
+            <label>
+                State:
+            </label>
+            <select>
+                <option>MH</option>
+                <option>UP</option>
+                <option>AP</option>
+            </select>
+
+        </div>
+
+
+         <div>
+            <center>
+                <input type="button" value="Click" id="btn1"/>
+                <input type="submit" value="Submit" id="submit1" />
+           </center>
+        </div>
+<!-- <div style="height:20px;width:100px">
+    <img src="Images/celebration.jpg" />
+</div> -->
+<!-- <span height="20px" width="100px">
+    <img src="Images/celebration.jpg" />
+</div> -->
+
+        </fieldset>
+    </form>
+</div>
+    </body>
+</html>
