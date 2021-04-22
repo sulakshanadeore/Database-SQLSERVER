@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        #form1{
+background-color: yellow;
+
+        }
+    </style>
+    <script>
+
+// alert ("code donwloads on the browser-- client end ");
+// function   f1()
+// {
+//     alert("Welcome to JS, client side scripting language");
+
+// }
+
+    </script>
+</head>
+<body >
+    <form  id="form1" onclick="f1()">
+        <label>enter first number</label>
+        <input  type="number" id="no1" value=""/><br/>
+        <label>enter first number</label>
+        <input  type="number" id="no2" value=""/>
+        <label>Answer</label>
+        <input  type="number" id="ans" value="" readonly/>
+<input type="button" onclick="addnosAgain()" id="b3" name="b3" value="Add"/>
+<!-- <input type="button" value="Click" id="b1" name="b1" onclick="f2()"/>
+<input type="button" value="Click 2 button" id="b2" name="b2" onmousemove="f3()"/> -->
+
+</form>
+<script>
+    // alert("Here also allowed...");
+    function    f2()
+{
+alert ("Thsi is inovked on the click event of the button");
+
+}
+function    f3()
+{
+alert("Mouse moved");
+document.getElementById("b2").style.backgroundColor="red";
+
+}
+function addnos()
+{
+    var i=parseInt(document.getElementById("no1").value);
+    var j=parseInt(document.getElementById("no2").value);
+var ans=i+j;
+document.getElementById("ans").value=ans;
+
+}
+
+function addnosAgain()
+{
+    var i=parseFloat(document.getElementById("no1").value);
+    var j=parseFloat(document.getElementById("no2").value);
+var ans=i+j;
+//var ans=document.getElementById("no1").value + document.getElementById("no2").value;
+document.getElementById("ans").value=ans;
+
+}
+</script>
+</body>
+</html>
