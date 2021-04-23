@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <!-- <script src="D:\WinWire\SecurityDemo\packages\jQuery.3.3.1\Content\Scripts\jquery-3.3.1.min.js"/> -->
+
+    
+    <script>
+        $(document).ready(
+            function(){
+
+               $('#p1').click(function()
+               {
+                document.getElementById('p1').innerHTML="Hello changed teh text now";
+               });
+
+               $(".c1").click(
+                   function(){
+                       alert("Paragraph with class clicked.....");
+                    });
+            
+                $("#btnlogin").click(function()
+                    {
+                        var uname=$("#username").val();
+                        var pwd=$("#userpwd").val();
+                        // alert(uname);
+                        // alert(pwd);
+                        if(uname==="admin" && pwd=="admin")
+                        {
+                            alert("Welcome");
+                            //window.location.href="https:\\www.google.com";
+                            //document.location.replace("page1.html");
+                            window.open("page1.html","_blank");
+                        }
+                        else    
+                        {
+                            alert("Check userid/password");
+
+                        }
+                    });
+
+
+                
+        });
+
+    </script>
+</head>
+<body>
+    
+            <p id="p1">thsi is paragraph</p>
+            <hr/>
+            <p class="c1"> Thsi is second para</p>
+    <hr/>
+
+    <form>
+<label for="fname">Enter User Name:</label>
+<input type="text" id="username"/>
+<br/>
+<label for="pwd">Enter Password:</label>
+<input type="password" id="userpwd"/>
+<br/>
+<input type="button" id="btnlogin" value="Login"/>
+    </form>
+    
+</body>
+</html>
