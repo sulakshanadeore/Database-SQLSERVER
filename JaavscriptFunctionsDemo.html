@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <!-- <script src="userdemofuns.js"/> -->
+ <script>
+let x=function()
+{
+    // alert("Anonymous function called...");
+    // CallShowInfo();
+    return 3.14;
+}
+
+
+
+    function showInfo(pname,city)
+    {
+//alert("Hello");
+alert(city);
+return pname.length;
+
+// console.log(pname);
+
+
+     }
+
+     function CallShowInfo() {
+         var pname=document.getElementById("pname").value;
+         var city=document.getElementById("city").value;
+var Namelength=showInfo(pname,city);
+document.getElementById("plength").value=Namelength;
+document.getElementById("p1").innerHTML=Namelength;
+
+     }
+
+    </script> 
+</head>
+
+<body style="background-color: aqua;">
+<form>
+    <input  type="text" id="pname" value="" placeholder="Enter name"/>
+    <input  type="text" id="city" value="" placeholder="Enter City"/>
+<input type="text" id="plength" />
+
+    <input  type="button" id="b1" value="Click" onclick="showInfo('abc','a')"/>
+    <p id="p1" style="height: 15px;width: 100px;background-color: red;" 
+    onclick="CallShowInfo()">click this paragraph</p>
+    <hr/>
+
+    <input type="button" id="b2" value="Anonymous function Call" onclick="var d=x();alert(d)"/>
+</form>
+</body>
+</html>

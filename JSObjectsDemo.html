@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+<script>
+    var person={"name":"Vignesh","company":"Mphasis"};
+    function showdata()
+    {
+document.getElementById("fname").value=person.name;
+document.getElementById("companyname").value=person.company;
+
+
+    }
+
+    setTimeout(function(){showdata()});
+
+</script>
+</head>
+<body>
+    <form>
+        <input type="text" id="fname" placeholder="Name"/>
+        <br/>
+        <input type="text" id="companyname" placeholder="CoName"/>
+        <br/>
+        <input type="button" id="b1" value="Click here" onclick="setTimeout()"/>
+
+    </form>
+
+</body>
+
+</html>
