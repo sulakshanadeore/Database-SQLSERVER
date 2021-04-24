@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>  -->
+<style>
+    .c1
+    {
+        background-color: salmon;
+        font-size: xx-large;
+        font-style: normal;
+        font-weight: bold;
+        color: springgreen;
+        
+    }
+    .c2
+    {
+        background-color:green;
+        font-size: small;
+        font-style:italic;
+        font-weight: bolder;
+        color:red;
+        
+    }
+
+
+</style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <script>
+$(document).ready(function(){
+    $("#p1").mousemove(function(){
+$("#p1").addClass("c1");
+
+
+    });
+
+    $("#p1").mouseleave(function(){
+$("#p1").removeClass("c1");
+$("#p1").addClass("c2");
+
+
+
+    });
+
+
+$("button").click(function(){
+    
+    $("#p1").removeClass("c2");
+    $("#p1").toggleClass("c1");
+    
+
+
+});
+
+
+
+
+
+
+
+});
+
+
+    </script>
+</head>  
+<body>
+    <p id="p1">This is a paragraph.
+        This is a paragraph.
+        This is a paragraph.
+        This is a paragraph.
+        This is a paragraph.
+        This is a paragraph.
+        This is a paragraph.This is a paragraph.
+        This is a paragraph.
+        This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.This is a paragraph.
+        This is a paragraph.This is a paragraph.This is a paragraph.
+
+    </p>
+    <button>Toggle class</button>
+
+</body>
+</html>

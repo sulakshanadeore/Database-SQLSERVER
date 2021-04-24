@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <script>
+        $(document).ready(function(){
+
+            $("#btnfadein").mousemove(function(){
+    
+                $("#div1").fadeIn("fast");
+            });
+
+$("#btnfadeout").click(function(){
+    
+                $("#div2").fadeOut(3000);
+            });
+
+            $("#btnfadetoggle").click(function(){
+
+
+                $("#div3").toggle();
+            });
+
+            $("#btnfadeto").click(function(){
+
+$('#div4').fadeTo("slow",0.15);
+});
+
+
+
+        });
+    </script>
+    </head>
+    <body>
+        <div id="div1" style="height: 100px;width: 100px;background-color: red;display:none;"></div>
+        <button id="btnfadein">FadeIn</button>
+        <br/>
+        <hr/>
+        <br/>
+        <div id="div2" style="height: 100px;width: 100px;background-color: red;"></div>
+        <button id="btnfadeout">FadeOut</button>
+        <br/>
+        <hr/>
+        <br/>
+        <div id="div3" style="height: 100px;width: 100px;background-color: red;"></div>
+        <button id="btnfadetoggle">Fade Toggle</button>
+        <br/>
+        <hr/>
+        <br/>
+        <div id="div4" style="height: 100px;width: 100px;background-color: red;"></div>
+        <button id="btnfadeto">Fade To</button>
+
+
+    </body>
+    </html>

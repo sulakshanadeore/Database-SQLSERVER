@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <script>
+        $(document).ready(function(){
+
+                jQuery("button").click(function(){
+                    
+                    $("#col1").html('<img id="img1" src="Images/celebration.jpg" height="60px;width:100px" />');
+                    $("#col1").append("<b>Thsi is appended text</b>");
+                    $("#col1").prepend("<b>Thsi is prepended text</b>");
+                    
+                });
+        });
+    </script>
+</head>
+<body style="height: 500px;width: 500px;background-color: teal;">
+<table style="border: 2px solid red;">
+    <tr>
+        <td id="col1"></td>
+        <td><div id="div1" style="height: 100px;width: 100px;background-color: red;position: relative;">Hello</div></td>
+    </tr>
+    <tr>
+    
+    
+    <button>Prepend Image</button>
+</tr>
+</table>
+</body>
+</html>
