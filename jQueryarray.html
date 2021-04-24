@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>jQuery Hello World</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+
+<script type="text/javascript" language="javascript">
+ 
+// Using Foreach
+ 
+function printArray(Argu) {
+    $("#p1").append(Argu + "  ");
+    // $("#p1").append("   ");
+
+//document.write (Argu);
+//document.write("<br/>");
+ 
+}
+ 
+IntArray = [ 1, 2, 3, 4, 5 ];
+ 
+// Prints all elements to the console
+$(document).ready(function(){
+$("button").click(function(){
+IntArray.forEach( printArray );
+});
+
+});
+
+ 
+</script>
+ 
+</head>
+<body>
+    <p id="p1"></p>
+<button>Show Array</button>
+</body>
+ 
+</html>
