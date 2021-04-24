@@ -1,0 +1,44 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <script>
+$(document).ready(function(){
+
+    $("#loaddata").click(function () {
+  	$.ajax({url:"data.json", success:function(ajaxresult)
+    {
+       
+        var i=ajaxresult;
+            //alert(i);
+            var data;
+            // $.each(i, function (index, value) {
+
+
+            //     alert(index + ": " + value.name + "   From  "+ value.Company);
+            // });;
+
+            
+            data=JSON.stringify(i);
+	var contact = JSON.parse(data);
+	//console.log(data);
+document.getElementById("p1").innerHTML=data;
+    $("#ajaxrequest").text(contact[0].name + "  " + contact[0].Company + ",  "+ contact[1].name + "  " + contact[1].Company + ", " +contact[2].name + "  " + contact[2].Company);
+
+
+				}
+		});
+	});
+
+
+});
+    </script>
+</head>
+<body>
+<p id="p1"></p>
+    <div>Click button to load AJAX returned data</div>
+    <div id="ajaxrequest">
+    </div>
+    <button id="loaddata">Load data for ajaxrequest Div</button>
+
+</body>
+</html>

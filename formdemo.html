@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<title>HTML Forms</title>
+
+</head>
+<body bgcolor="Cyan">
+<table border="1">
+<form method="POST" name="frm">
+ <tr> 
+ <center>
+ <strong>
+ <em>
+ Personal Info
+ </em>
+ </strong>
+ <center>
+  </tr>
+ <tr>
+<td>Enter Name: </td>
+<td><input id="txtname" 
+type="text" optional
+minlength="2" maxlength="20"/>
+</td>
+<tr><td>Enter Password:</td>
+<td><input type="password" required id="pwd"/></td>
+</tr>
+</tr>
+<tr>
+<td>Enter Address: </td>
+<td><input id="txtaddress" size="50" type="textarea" minlength="20" maxlength="200"/></td>
+</tr>
+<tr><td>Enter Email id: </td>
+<td><input id="txtemail" type="email" novalidate /></td>
+</tr>
+<tr>
+<td>Enter Url: </td>
+<td><input id="txturl" type="url" /></td>
+</tr>
+<tr>
+<td>Enter date: </td>
+<td><input type="date" id="dt"/></td>
+</tr>
+<tr>
+<td>Enter week: </td>
+<td><input type="week" id="wk"/></td>
+</tr>
+<tr>
+<td>Enter month: </td>
+<td><input type="month" id="mth"/></td>
+</tr>
+<tr>
+<td>Enter Gender: </td>
+<td><input type="radio" name="g" id="m">Male</input>
+<input type="radio" name="g" id="f">Female</input>
+</td>
+</tr>
+<tr>
+<td>Upload File</td>
+<td><input type="file" id="uploadFile" multiple/></td>
+</tr>
+<tr>
+<td>Enter Group :</td>
+<td><input type="radio" name="gr"  id="facebook">Facebook</input>
+<input type="radio" name="gr"  id="whatsup" checked>Whats app</input>
+</td>
+</tr>
+<tr>
+<td>Enter Qualification:</td>
+<td><input type="checkbox" value="graduation " checked id="grad"> B.E.(Comp) </input>
+<input type="checkbox" value="Masters in Engg" id="post"> M.E.(Comp) </input>
+<input type="checkbox" value="Doctrate" id="higher"> Ph.D </input>
+</td>
+</tr>
+<tr>
+<td>Select your favourite site:</td>
+<td>
+<select name="sites" multiple>
+<option>select site</option>
+<option value="www.google.com" selected>Google</option>
+<option selected>Yahoo</option>
+<option>MSN</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>
+<input type="button" id="btnpush" 
+value="Click"/>
+
+<input type="submit" id="btnsubmit" 
+value="Submit Form"/>
+
+<input type="reset" id="btnreset" 
+value="Reset Form"/></td>
+</tr>
+</form>
+</table>
+</body>
+</html>
+
