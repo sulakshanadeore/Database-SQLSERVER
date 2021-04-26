@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+
+
+<style>
+span{
+
+    border: 5px solid red;
+  padding:  0em 1em;
+  border-radius: 16px;
+  font-size: 24px;
+  line-height: 2;
+}
+div
+{
+    border: 5px solid red;
+  padding:  0em 1em;
+  border-radius: 16px;
+  font-size: 24px;
+  line-height: 2;
+}
+
+
+ div.i1{
+    box-decoration-break: clone;    
+    -webkit-box-direction-break:clone;
+  -o-box-direction-break:clone;
+-ms-box-direction-break:clone;
+
+}
+
+ div.i2
+{
+    box-decoration-break: slice;    
+    -webkit-box-direction-break:slice;
+  -o-box-direction-break:slice;
+-ms-box-direction-break:slice;
+
+}
+
+
+     #borderimg3 { 
+             border: 20px solid transparent; 
+            padding: 15px;
+            border-image:round;
+             border-image-source: url(Images/place-watermark.jpg);
+            border-image-repeat:round; 
+             border-image-slice: 10em; 
+            border-image-slice: fill; 
+            /* safari&chrome */
+             -webkit-border-image: url("Images/place-watermark.jpg") 50 30 repeat;
+             /* opera */
+             -o-border-image: url("Images/place-watermark.jpg") 50 30 repeat;
+             /* microsoft browsers */
+             -ms-border-image:url("Images/place-watermark.jpg") 50px 30px repeat;
+
+
+
+         }
+</style>
+</head>
+<body>
+    <!-- <div id="borderimg3">
+HelloHelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHelloHelloHello
+HelloHelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHelloHelloHello
+
+HelloHelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHello
+HelloHelloHelloHelloHelloHello
+
+    </div> -->
+
+    <hr/>
+<span> This <br/> is <br/> decoration <br/> demo <br/> </span>
+<hr/>
+<div class="i1"> This <br/> is <br/> decoration <br/> demo <br/> </div>
+<hr/>
+<div class="i2"> This <br/> is <br/> decoration <br/> demo <br/> </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    
+    <script>
+        $(document).ready(function(){
+
+
+$("button").click(function(){
+
+    $("h1,h2,p").css("background-color","red");
+    $("h1,h2,p").css("color","green");
+$("#div1").css("width","100");
+$("#div1").css("height","500");
+$("#div1").css("background-color","blue");
+$("#div1").css({"height":"500","background-color":"blue","border-style":"dotted","border-width":"4px","border-color":"yellow"});
+
+//,"height","500","background-color","blue","border-style","dotted","border-width","4px","border-color","yellow");
+
+
+
+});
+
+// function savedetails()
+// {
+
+//     sessionStorage.setItem("filepath",fileupload1.file[0]);
+
+// }
+
+// function getdetails()
+//         {
+
+// var imgpath=sessionStorage.getItem("filepath");
+// $("#img1").attr("src",imgpath);
+
+//         }
+
+
+//         $("#preview").click(function(){
+// getdetails();
+
+//         });
+
+
+$("#btnslide").click(function(){
+
+//    $("#div2").slideUp();
+$("#div2").slideToggle();
+ var v=$("#div2").attr("style");
+
+
+
+
+ alert(v);
+
+ $("a").attr("href","https://in.yahoo.com/?p=us");
+//slideUp
+//slideDown
+
+
+});
+
+// $("*").click(function(){
+// $(this).slideToggle();
+
+// });
+
+
+        });
+    </script>
+</head>
+<body style="height: 500px;width: 500px;background-color: teal;">
+<h1>Heading1</h1>
+<h2>Heading2</h2>
+<p>this is a paragraph</p>
+<div id="div1" >Hello</div>
+<button>Apply css</button>
+<hr/>
+<div id="div2" style="width:200px;background-color: yellow;height:300px;border-style:dotted;border-width:4px;border-color:red"></div>
+<input type="button" id="btnslide" value="Slide"/>
+<hr/>
+<a href="">Go to Google</a>
+</body>
+</html>
