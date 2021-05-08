@@ -1,0 +1,173 @@
+sp_help categories
+select * from Categories
+
+insert into categories(categoryname,description) values('breakfast','morning breakfast')
+go
+
+insert into categories(categoryname,description) values('lunch','afternoon')
+insert into categories(categoryname,description) values('high tea','evening')
+insert into categories(categoryname,description) values('dinner','night')
+insert into categories(categoryname,description) values('coffee','mid noon')
+go
+
+select * from Categories
+where Categoryid=13
+
+select * from products
+where categoryid=13
+
+select * from Categories 
+where categoryid=1 or CategoryID=2 or CategoryID=3 or
+ CategoryID=4 or categoryid=5
+
+
+select * from Categories 
+where categoryid!=1 and CategoryID!=2 and CategoryID!=3 and
+ CategoryID!=4 and categoryid!=5
+
+ select * from Categories
+ where CategoryID not in(1,2,3,4,5)
+
+ ----in/between---- Inclusive
+
+ select * from Categories
+ where CategoryID between 6 and 17
+
+  select * from Categories
+ where CategoryID between 1 and 5
+
+ select * from  categories 
+ where categoryname='SeaFood'
+
+ select * from  categories 
+ where categoryname like 'SeaFood'
+
+ select * from  categories 
+ where categoryid='1'
+
+ select * from  categories 
+ where categoryid like '1'
+
+ select * from Categories
+ where CategoryName='Beverages' or categoryname='Seafood'
+
+ select * from categories
+ where categoryname like 'B%'
+
+ select * from categories
+ where categoryname like 'S%d'
+
+ select * from categories
+ where categoryname like 'S%d'
+
+
+ select * from categories
+ where categoryname like '_______'
+
+ select * from categories
+ where categoryname like '_r____e'
+
+ select * from categories
+ where categoryname like '%r_____'
+
+ select * from categories
+ where categoryid=8 and categoryname like '%food' or (categoryid=6)
+
+
+ select * from categories
+ where categoryname='_______'
+ 
+  --show categories except catid between 1 to 5
+  select * from Categories
+ where CategoryID not between 1 and 5
+
+
+ select * from categories
+ order by CategoryName 
+
+
+ select * from categories
+ order by CategoryName desc
+
+
+ select categoryid,description,categoryname from Categories
+ select categoryid,description,categoryname from Categories
+ order by categoryname
+
+ select categoryid,description,categoryname from Categories
+ order by categoryname desc
+
+ select categoryid,description from Categories
+ order by categoryname desc
+
+ ---relative column index
+ select categoryid,description,categoryname from Categories
+ order by  3 desc
+
+ select * from Categories
+ order by  2 desc
+
+
+
+ select * from orders
+ where OrderDate>'04-July-1996'---- dd-month-yyyy---- exact comparision
+ order by orderid
+
+ select * from orders
+ where OrderDate>'04-07-1996'---- dd/mm/yyyy- day is included
+ order by orderid
+
+ select * from orders
+ where OrderDate>'1996-07-04'---- yyyy/mm/dd--- exact comparision
+ order by orderdate
+
+ select * from orders
+ where OrderDate between '1996-07-04'  and '1996-12-31'
+ order by orderdate
+
+ select orderid,shipregion from orders
+ where ShipRegion is null
+
+ select orderid,shipregion from orders
+ where ShipRegion is not null
+
+ select * from categories
+ where picture is null
+
+ select * from customers
+ where region is null
+ 
+
+ select region, ISNULL(region,'notavailable') from customers
+ select Description,
+ ISNULL(Description,'Description notavailable') from categories
+ 
+ update categories 
+ set description=null
+ where categoryid=17
+
+ 
+
+
+
+
+
+
+ select SYSDATETIME()-----yyyy-mm-dd
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
