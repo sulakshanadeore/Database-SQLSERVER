@@ -1,0 +1,118 @@
+use northwind
+go
+
+--1-M relationship in the tables/columns
+---group by
+--- deptwise employees----
+   --1: M
+
+   --10----5(count)
+   --20-----7
+   --30------10
+   --40------0
+--categorywise list of products
+--1:M
+
+
+----orderwise list of product
+---1:M
+
+----mgrwise list of employees
+----lsit of mgr list of employees
+	--reportsTo: empid
+    ----1:M 
+
+select count(productid) from products-----pk
+
+select * from products
+
+select count(categoryid) from categories----pk
+
+select * from categories
+
+select count(picture) from categories
+
+select * from customers
+select count(customerid) from customers
+select count(*) from customers
+select count(region) from customers----region count which is not null
+select 31+65
+select count(*) from customers--- pk
+where region is null--------------------total number of rows and 
+-----as the condition is not null, it counts
+---the rows which have region as null 
+
+select sum(12+3)
+select * from [Order Details]
+
+select orderid,productid,quantity,unitprice,(quantity*unitprice),discount
+from [Order Details]
+where orderid=10250
+
+
+select orderid,productid,quantity,unitprice,(quantity*unitprice)
+as "PriceBeforeDiscount",
+discount,(unitprice*Quantity)*Discount 'DiscountAmt',
+(quantity*unitprice) -(unitprice*Quantity)*Discount "Actual Price"
+from [Order Details]
+where orderid=10250
+
+select 77+1261.4+214.2
+
+select orderid,count(productid)"ProductCount" from [Order Details]
+group by OrderID
+
+select 1484*.15 
+
+
+--1552.6----10250
+--orderwise sum of the ordervalues
+select orderid,sum((quantity*unitprice) -(unitprice*Quantity)*Discount) "Actual Price"
+from [Order Details]
+group by orderid
+
+
+select orderid,round(sum((quantity*unitprice) -(unitprice*Quantity)*Discount),2) "Actual Price"
+from [Order Details]
+group by orderid
+
+select sum(10.33*2.33+3)"summing",round(sum((10.33*2.33+3)),2)"rounding",floor(sum(10.33*2.33+3))"floorfun",CEILING(sum(10.33*2.33+3)) "ceilingFun"
+
+select round(10.522,2), round(10.4555,2)
+select unitprice from products
+order by unitprice
+select round(avg(unitprice),2),  min(unitprice) "minprice",max(unitprice) from products
+
+select orderid,round(sum((quantity*unitprice) -(unitprice*Quantity)*Discount),2) "Actual Price" from [Order Details]
+group by orderid
+
+select categoryid,count(productid) "prodcount" from products
+group by CategoryID
+
+--Average price of product by categroy
+select categoryid,round(avg(unitprice),2),ceiling(floor(round(avg(unitprice),2))) from products
+group by categoryid
+
+SELECT orderid,productid,SUM(quantity) AS total_quantity
+FROM [Order Details]
+--WHERE productid = 2
+GROUP BY productid,orderid
+order by ProductID
+
+select * from [Order Details]
+where orderid=10285
+
+
+select round(10.6,2)
+
+
+
+
+
+
+
+
+
+
+
+
