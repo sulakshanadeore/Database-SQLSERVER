@@ -1,0 +1,61 @@
+PUBS
+
+ 
+
+1.    Write a SELECT statement that retrieves the title_id and ­title from the dbo.titles table.
+
+ 
+
+2.    Write a SELECT statement that retrieves from the dbo.employees table the "first name," "last name," "employee ID," and "job level."  These are the column aliases that should appear in the result set.  See the Books Online topic "SELECT Clause (Transact-SQL)," subtopic column_alias.
+
+ 
+
+3.    Retrieve the title of the book that has title ID 'PC9999'.
+
+ 
+
+4.    Retrieve a list of author last names, cities, states, and zip codes whose zip code is greater than 90000.  Use the proper data type for the zip code.  (dbo.authors)
+
+ 
+
+5.    Write a select statement that retrieves the title and price of all books that cost between $10 and $15.  (You may use the numbers 10 and 15 without dollar signs.)  Use the BETWEEN keyword.
+
+ 
+
+6.    Retrieve the employee ID, last name, and job level for all employees that are at job level 35, 100, or 200.  Use the IN keyword.  (dbo.employee)
+
+ 
+
+7.    List the title ID and title for all titles that contain the character string 'computer' anywhere in the title.  Use the LIKE keyword.
+
+ 
+
+8.    List all stores (dbo.stores) that have a store name with first letter D or E.
+
+ 
+
+9.    Retrieve all titles for which the royalty is unknown.  See the Books Online topic "IS [NOT] NULL (Transact-SQL)."
+
+ 
+
+10.  Retrieve the store ID, title ID, order date, and quantity sold for all sales (dbo.sales) that occurred in the year 1994 from stores that either sold more than 20 copies of a single title or had a payment term of "Net 30" days.  You will need to see two Books Online topics for this one:  "YEAR (Transact-SQL)," for determining the year part of the order date, and "Operator Precedence (Transact-SQL)."  In the precedence topic, note AND, OR, and use of parentheses to override defined precedence.  You may want to execute the following query, to see the possible values of payterms:  SELECT DISTINCT payterms from dbo.sales.
+
+ 
+
+11.  List the Employee ID, First name, Last name, and Hire date of all employees.  The hire date should appear in the format: Jun 1, 1990.  Note the comma.  The result set should have column titles as in the first sentence.
+
+12.  List the total quantity of books ordered for each month of 1993.  The month may be expressed as an integer from 1 to 12.  (dbo.sales)
+
+13.  List the total quantity of books ordered for each title_id.  Show results only for titles with 50 or more copies ordered.
+
+14.  Determine the number of days between the latest employee hire date and today.  (Since the answer will depend on the day you run the query, you do not need to show your result.)  (Hint: A subquery is not required.)
+
+15.  Write an expression to determine a person's age, given their birthday.  For testing purposes, use birthdays of March 6, 1987 and September 7, 1944 in your query.  Also, use the fact that a good approximation of the number of days in a year is 365.25.  Your answer should be an integer.
+
+16.  Display the type and average price for each type, for books whose type ends with the character string 'cook'. 
+
+17.  List the title_id, title, type, pub_id, price, and royalty of all books.  If the royalty has an indeterminate value, the result set should give a royalty value of zero.  The result set should be given in order of decreasing royalty.
+
+18.  What is the value of 2 raised to the 32nd power?  Write the SQL code that gives the answer.
+
+19.  For the (imaginary) table dbo.AuditTrail having column WhoDoneIt, write the ALTER TABLE statement that will assign the default value of the Windows user name to the WhoDoneIt column.  (Obviously, for this query, you are not required to show a result.)
