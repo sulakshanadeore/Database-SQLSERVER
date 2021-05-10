@@ -1,0 +1,51 @@
+select SYSDATETIME() 
+select getdate()
+select DATEPART(year,getdate())
+select DATEPART(MONTH,getdate())
+select DATEPART(day,getdate())
+select DATEPART(hour,getdate())
+select DATEPART(MINUTE,getdate())
+select orderdate,DATEPART(month,orderdate) from Orders
+select orderdate,DATEADD(month,1,OrderDate) from Orders
+select orderdate,DATEADD(month,-1,OrderDate) from Orders
+select DATEADD(hour,2,getdate())
+select datename(month,getdate())
+select orderdate, convert(varchar(4),datepart(day,orderdate))+'-' +DATEname(month,OrderDate) from Orders
+select birthdate,DATEDIFF(year,BirthDate,getdate()) from employees
+select birthdate,DATEDIFF(month,BirthDate,getdate()) from employees
+select birthdate,convert(varchar,birthdate,1) from Employees
+
+select birthdate, convert(varchar, birthdate, 0) from employees
+
+select REPLACE('HELLO','E','A')
+select stuff('SQL SERVER',1,3,'ORACLE')
+
+select CHARINDEX('E','HELLO')
+select 'abc' + 'xyz'
+select CONCAT('abc','xyz')
+select CONCAT(firstname,lastname) from employees
+select CONCAT_WS('-',firstname,lastname) from employees
+select firstname, len(firstname) from employees---actual
+select firstname, datalength(firstname) from employees----bytes consumed
+
+select LEFT('hello',1)
+select right('hello',1)
+select len('  hello '),len(LTRIM('  hello  ')),len(RTRIM('  hello      '))
+select PATINDEX('%LO%','HELLO')
+select upper(firstname) from  Employees
+select lower(firstname) from  Employees
+select upper(substring(firstname,1,1))+lower(substring(firstname,2,len(firstname))) from  Employees
+select firstname, reverse(firstname) from employees
+select DIFFERENCE('alan','alen')-----spelling
+select DIFFERENCE('alan','alan')
+select DIFFERENCE('alan','allen')
+select DIFFERENCE('alan','hari')
+select soundex('alan'),soundex('ALAN')--- sound
+
+
+
+
+
+select ASCII('A')
+select ASCII('a')
+
