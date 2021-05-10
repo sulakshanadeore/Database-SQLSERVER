@@ -1,0 +1,60 @@
+use northwind
+go
+
+
+--use of operators:
+--1) Column datatypes must match in both the queries
+--2) Same number of columns in both the select queries
+--3) Same order 
+
+
+--union---- no duplicates
+--union all--- will have duplicates
+--intersect ---- common
+--minus--- there in output first query and not in second
+
+
+
+
+
+select country,region from customers
+union
+select Country,region from suppliers
+
+select 71 +29 
+select 96+29
+
+select Country,region from customers
+union all
+select Country,region from suppliers
+
+use pubs
+go
+
+select city from authors
+where city='Portland'
+select city from stores
+
+
+
+select state from authors
+union 
+select state from stores
+
+select state from authors
+union all
+select state from stores
+
+select state from authors
+intersect
+select state from stores
+
+select state from authors
+except
+select state from stores
+
+
+select state from stores
+except
+select state from authors
+
