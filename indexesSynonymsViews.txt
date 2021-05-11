@@ -1,0 +1,80 @@
+----Synonym
+--alternative names to objects
+---tables/views/indexes/procedures/functions
+--2 types public and private
+--admin-public
+use northwind
+go
+create synonym  emp for employees
+drop synonym emp
+select * from emp
+--Views--- Virtual Table-- they donot hold any data
+---2 types --- Simple & complex
+----simple--updateable
+---complex ---- non updateable
+create view v1
+as 
+select * from Employees
+
+
+select * from v1
+
+create view v2
+as
+select employeeid,LastName from Employees
+
+create view v3
+as 
+select employeeid,lastname,city from employees
+where city='Berlin'
+with check option
+
+insert into v3 values('sumant','Berlin')
+
+drop view v3;
+delete from employees 
+where lastname='Hemant'
+
+drop view v3;
+sp_help employees
+
+--Indexes
+--clustered index is automatically created on pk column
+--- There can be not more than 1 clusutered index per table
+---Non clustered indexes can be created.
+
+create table trial1
+(empno int,
+ename varchar(20))
+create clustered index i1
+on trial1(empno)
+
+sp_help trial1
+create nonclustered index i2
+on trial1(ename)
+
+insert into trial1 values(1,'ABC')
+insert into trial1 values(2,'car')
+insert into trial1 values(3,'Bat')
+insert into trial1 values(4,'Cad')
+select * from trial1 where empno=1
+select * from trial1 where ename like 'abc'
+
+select * from employees
+where employeeid=4
+sp_help employees
+select * from employees
+where lastname like '%a%'
+order by city
+
+sp_help products
+select * from products 
+where categoryid=1
+
+
+
+
+
+
+
+
