@@ -1,0 +1,121 @@
+----sub -queries
+----calling one query in the other query
+---the other query output is pass as input to the first query.
+---one query calling another query
+
+----single row sub query
+----mutiple row sub query
+-----corelated sub query
+
+
+--if the inner query returns you one value and u use that one value
+--as input to the outer query---- Single row subquery
+--outer query---input
+--(inner/sub query)
+--  1 value to compare 
+--  Where can u write a subquery
+--  =--------------------------=
+--  1) where
+--  2) from
+--  3) having
+
+--  Single row subquery---- where
+--  (inner query)---------Select distinct
+--  from
+--  group
+--  order by
+--  having
+-------------------------------------------------------------
+use northwind
+go
+select * from products
+
+select * from categories
+
+-----list down the products supplied by supplier id =1
+select * from products where supplierid=1
+---find out the products whose price = min(price)
+select * from products
+where unitprice=(select min(unitprice) from Products)
+
+---find out the products whose price > min(price)
+select * from products
+where unitprice>(select min(unitprice) from Products)
+order by unitprice
+
+-----find out all products who are in the same category as the 
+----product "aniseed syrup" 
+select categoryid from products
+where productname like 'aniseed syrup'
+
+select * from products
+where CategoryID=(select categoryid from products
+where productname like 'aniseed syrup')
+
+
+select * from suppliers
+---find out all the products supplied by suppliername 'Exotic Liquids'
+select supplierid from suppliers
+where companyname like 'exotic liquids'
+
+select * from products
+where supplierid=(select supplierid from suppliers
+where companyname like 'exotic liquids')
+
+---Multiple rows sub query
+------find all the products supplied by exotic liquids and Tokyo traders
+select supplierid from suppliers where companyname like 'Exotic liquids' or
+companyname like 'Tokyo Traders'
+
+select * from products
+where supplierid in (select supplierid from suppliers where companyname like 'Exotic liquids' or
+companyname like 'Tokyo Traders')
+-------------------------------------
+--find the orders placed by customer 'Alfreds Futterkiste'
+select * from customers
+select customerid from  customers 
+where companyname like 'Alfreds Futterkiste'
+
+select * from orders where customerid=(select customerid from  customers 
+where companyname like 'Alfreds Futterkiste')
+
+
+
+----------------------------------------
+---find all orders from customers in London
+
+select * from orders
+where customerid in(select CustomerID from customers
+where city='London')
+-------------------------------------------
+-------find products list for orderid 10248 and 10249
+select * from [Order Details]
+----------------------------------------------------
+--corelated subqueries
+--a)they have references to the columns from the outer query.
+--b)Logically the subquery is evaluated once for each row of the outer query.
+
+--find the orders with maximum(latest) orderdate for each employee
+
+select employeeid,max(orderdate) from orders
+group by employeeid
+order by employeeid
+
+select orderid,customerid,employeeid,orderdate from orders
+where orderdate in
+(select max(orderdate) from orders
+group by employeeid)
+
+
+select orderid,customerid,employeeid,orderdate from orders o1
+where orderdate =(select max(orderdate) from orders o2
+where o1.EmployeeID=o2.employeeid)
+
+
+
+
+
+
+
+
+
