@@ -1,0 +1,219 @@
+declare
+--declare
+begin
+--executable
+end
+
+
+begin
+print 'Hello'
+end
+
+
+declare 
+@i int
+begin
+set @i=100;
+if (@i=10) 
+begin
+print 'i is 10'
+end
+else
+begin
+print 'i is not  10'
+end
+end
+
+--programs are called blocks
+declare
+@v_empid int,
+@v_lastname nvarchar(20)
+begin
+set @v_empid=1;
+select @v_lastname=lastname from employees
+where employeeid=@v_empid;
+print 'Lastname = ' +  @v_lastname + ' for employeeid=' + 
+convert(varchar(2),@v_empid)
+end
+------------------------------------------------------
+--- Parameters
+---types of parameters
+--in/out/inout
+---input
+---output
+---inputoutput
+
+---procedure----
+--set of code that executes but doesn't RETURN anything, ie it is used 
+---for executing the code but not for calculations
+
+----side effect---- but no calculation
+----insert------ side effect----data inserted
+-----update----side effect---- data updated
+-----delete -----side effect--- data deleted
+----input of employeeid and output must be concatenation of firstname & lastname
+
+----default paramter type-- in
+----output
+--create procedure procedure_name
+--(parameter datatype in)
+--as
+--begin
+--code
+--end;
+
+
+----procedure 
+CREATE PROCEDURE sp_getfullname
+	-- Add the parameters for the stored procedure here
+	(@p_empno int,
+	@p_fullname nvarchar(30) output)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT @p_fullname=concat(lastname,firstname) from employees
+	where employeeid=@p_empno;
+END
+GO
+
+----procedure execution
+USE [northwind]
+GO
+
+DECLARE	@return_value int,
+		@p_fullname nvarchar(30)
+
+EXEC	@return_value = [dbo].[sp_getfullname]
+		@p_empno = 3,
+		@p_fullname = @p_fullname OUTPUT
+
+SELECT	@p_fullname as N'@p_fullname'
+
+SELECT	'Return Value' = @return_value
+
+GO
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------
+-----functions-----
+--block of code used for calculations-- it returns the calculated value/s.
+----calculate salary,comm ----return the value --- Scalar functions
+
+---3 Types
+---Table Valued Functions--- return table
+(single Row  & multiple rows)
+				a) Inline Table valued----- u donot create a table varaible
+				b) Multi-statement table valued	---- u create a table variable
+
+
+--Scalar Functions--- return single value
+----Aggregate Functions----functions that act on multiple rows and return single value
+
+select * from [order details]
+
+select quantity*unitprice,((quantity*unitprice)*discount) dis , (quantity*unitprice) -(quantity*unitprice)*discount from [order details]
+where orderid=10284
+
+select  orderid,sum((quantity*unitprice)*discount) from [order details]
+where orderid=10284
+group by orderid
+-----------------------------------------
+----Multistatement table valued function
+
+CREATE FUNCTION fn_ShowEmployeesCity 
+(
+	-- Add the parameters for the function here
+	@p_city varchar(15)
+)
+RETURNS 
+@emp TABLE 
+(
+	-- Add the column definitions for the TABLE variable here
+	empno int,
+	firstname nvarchar(20),
+	lastname nvarchar(20),
+	city varchar(15)
+
+)
+AS
+BEGIN
+	-- Fill the table variable with the rows for your result set
+	Insert into @emp 
+	select employeeid,firstname,lastname,city from employees
+	where city like @p_city
+	RETURN 
+
+END
+GO
+
+-----Multistatement table valued function execution
+USE [northwind]
+GO
+
+SELECT * FROM [dbo].[fn_ShowEmployeesCity] ('London')
+GO
+----------------------------------------------------------------
+
+---Inline table valued function
+CREATE FUNCTION fn_ShowEmployeesByCity
+(	
+	-- Add the parameters for the function here
+	@p_city nvarchar(15)
+)
+RETURNS TABLE 
+AS
+RETURN 
+(
+	-- Add the SELECT statement with parameter references here
+	SELECT * from employees
+	where city like @p_city
+)
+GO
+
+----Execution of inline table valued
+SELECT * FROM [dbo].[fn_ShowEmployeesByCity] ('London')
+
+------------------------------------------------------
+
+
+-------Scalar function
+
+CREATE FUNCTION fn_CalculateOrderDiscount
+(
+	-- Add the parameters for the function here
+	@p_orderid int
+)
+RETURNS numeric(10,2)
+AS
+BEGIN
+	-- Declare the return variable here
+	DECLARE @discount numeric(10,2)
+
+	-- Add the T-SQL statements to compute the return value here
+select  @discount=sum((quantity*unitprice)*discount) from [order details]
+where orderid=@p_orderid
+group by orderid
+
+	-- Return the result of the function
+	RETURN @discount
+
+END
+GO
+
+
+---- execution scalar
+SELECT [dbo].[fn_CalculateOrderDiscount] (
+   10250)
+GO
+-----------------------------------------------
