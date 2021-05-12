@@ -1,0 +1,75 @@
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Trigger (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- See additional Create Trigger templates for more
+-- examples of different Trigger statements.
+--
+-- This block of comments will not be included in
+-- the definition of the function.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+--Before-----is allowed Oracle
+--SQL server--used  instead of 
+--After ---- ORacle as well as sql server
+
+
+Alter TRIGGER trg_ShowMsg
+   ON  Employees
+   Instead of  INSERT,DELETE,UPDATE
+AS 
+BEGIN
+declare 
+@v_empno int,
+@v_oldname varchar(20),
+@v_newname varchar(20)
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	select @v_oldname=firstname from deleted
+	select @v_empno=employeeid,@v_newname=firstname from inserted
+    -- Insert statements for trigger here
+	insert into emp_updates values (@v_empno,@v_oldname,@v_newname)
+	print 'triggered'
+END
+GO
+
+create table emp_updates
+(empno int,
+oldfirstname varchar(20),
+newfirstname varchar(20)
+)
+
+drop table emp_updates
+
+
+
+update employees
+set firstname='Hari'
+where employeeid=1
+
+select * from emp_updates
+
+----------------------------------------
+
+create table orders
+orderid int
+productid int
+qty int
+price numeric(10,2)
+amt numeric(10,2)
+
+-------------------------------
+trigger on insert on the orders table, amt=qty*price
