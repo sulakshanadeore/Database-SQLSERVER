@@ -1,0 +1,96 @@
+use northwind
+go
+
+select * from [order details]
+
+--list of customers who ordered more than 20 items of 
+---productid 17 on a single order.
+
+--Inner to outer--- single /multiple row 
+
+--Outer to inner--- correlated 
+
+select * from orders
+
+
+select orderid,customerid  from orders o
+where 20 < (select quantity 
+			from [order details] od
+			where o.orderid=od.orderid and productid=17)
+order by o.orderid
+
+
+
+select orderid,customerid,productid,
+(select quantity
+			from [order details] od
+			where o.orderid=od.orderid and productid=17 )quantity
+						from orders o,products p
+where p.productid=17  and  20 < (select quantity
+			from [order details] od
+			where o.orderid=od.orderid and productid=17 )
+			
+
+use oldhr
+go
+select * from emp
+order by deptno
+
+select count(*) from emp
+where deptno=20
+
+select * from dept
+where exists(select count(*) from emp
+where deptno=30
+having count(*)>1
+)
+
+
+select count(*) from emp
+
+
+select * from emp
+
+
+--list all salaries greater than the average salary in deptno=10
+select * from emp
+where sal > all(select floor(avg(sal)) from emp
+				where deptno=10)  --(max)
+				
+
+select * from emp
+where sal > any(select floor(avg(sal)) from emp
+				where deptno=10)
+
+select * from emp
+where sal > all(select sal from emp 
+				where deptno=30)---max(all)
+
+select * from emp
+where sal > any(select sal from emp 
+				where deptno=30)--- min(any)
+
+--find all employees who have salaries
+-- greater than avg(salaries) in their own dept
+
+select deptno,avg(sal) from emp
+group by deptno
+
+select empno,ename,sal,deptno,(select avg(Sal) from emp e2
+			where e1.deptno=e2.deptno) from emp e1
+where sal >(select avg(Sal) from emp e2
+			where e1.deptno=e2.deptno)
+
+
+
+
+
+
+where deptno=20
+where deptno=30
+
+
+
+
+
+select * from [order details]
