@@ -1,0 +1,105 @@
+
+
+		Web Architecture
+----------------------------------------------------
+
+DB server--------------------SqlClient dll/namespace-----Console App/Windows app
+				Communicate 
+
+Web Application
+---------------
+DB server
+is a machine on which database/s exists
+But it could the App Server which has the DB installed.
+On one DB server there can be multiple instances(SQL Express) of same server/software namely
+windows/sql server authentication modes.
+
+
+
+----------------------------------------------------------------------			
+AppServer  ----(IIS server)--- hosts the application.
+The server on which the application is running----
+Server has a address.
+
+Client ---access the server using the address.
+
+Client ---- send request to the server---- Request
+	    the server responds back to the cleint---- Response--- Client
+
+The server responds to the client on that address.
+
+start the communication
+
+packet travels from the client to the server through www(World wide web)
+client also has a address and so when the client sends a request the packet contains
+the address from where  the request originated.
+
+Whenever db wants to be connected, the client need not knwo the address of the db server.
+All the operations on the db server are taken care by the app server---- 
+mainly the DAL layer of the application takes care of this.
+
+App server collects the info from the client using the Apps UI and forwards it to the DAL layer after validating the data from the BAL layer.
+
+
+Techniques:
+Caching Techniques------ work very efficiently by holding/caching the data for a period of time while the data doesnot change.
+
+DB server-- will be accepting the changes after every 5 mins---- for 5 mins is the caching period.
+after 5 mins the data on the db server will change and so if  further it is holded u will get old data.
+
+and so caching improves---- stale data shud not be cached.
+
+	RTGS----Real time--- every sec---
+	NEFT----6pm everyday------cached data
+
+Caching done on the app server----- timelimit defined by the DB server
+
+
+State Mgt Techniques(Client Side/Server Side)
+--------------------
+Request --- Response
+Protcol---- http/https
+This protocol is a stateless protocol.
+-------------------------------------
+App-------------
+-------------------------------------
+Info in the object changes when state changes.
+Account
+
+One ac to another ac
+from one ---deducted---10000----obj1
+another ac--- added-----20000+10000-----obj2
+
+obj3---- obj2----make the application remember the obj2.------ persisting the state of the object for  further use----- Cookies,Query string,hidden state,session state----etc
+
+
+----------------------
+
+Developement Server-----   8GB---- chrome
+
+-------------------------------------------------------------------------
+Production(Testing) Server----- 16 GB server------
+	Performance Testing
+	UAT------
+
+--------------------------------------------------------------------------
+Production Server---- Purchased space on the server----
+	host the app on production server---- 
+Production Phase----- a very important----
+			
+
+Testing Server-----
+	performance -------- performance testing
+	UAT--- User Acceptance Testing
+----------------------------------------------------------------------
+Firewall------
+
+LAN----Local Area Network---- 
+WAN ---- Wide Area Network
+
+MAN----- Metropolitan Area Network
+
+
+-----------------------------------------
+
+
